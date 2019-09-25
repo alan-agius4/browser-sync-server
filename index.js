@@ -16,6 +16,7 @@ function execAsObservable(command, options) {
       obs.complete();
     });
 
+    // find a better way
     obs.next({});
     return () => treeKill(proc.pid, 'SIGTERM');
   });
