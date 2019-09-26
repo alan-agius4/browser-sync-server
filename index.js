@@ -8,12 +8,13 @@ const browserSync = require('browser-sync');
 function getAvailablePort() {
   return new Promise((resolve, reject) => {
     const server = createServer();
-    server.unref();
-    server.on('error', reject);
-    server.listen(0, () => {
-      const { port } = server.address();
-      server.close(() => resolve(port));
-    });
+    server
+      .unref()
+      .on('error', reject)
+      .listen(0, () => {
+        const { port } = server.address();
+        server.close(() => resolve(port));
+      });
   });
 }
 
@@ -41,9 +42,11 @@ function execAsObservable(command, options) {
   const bs = browserSync.init({
     proxy: `localhost:${port}`,
     port: 4002,
+    ui: false,
     server: false,
     notify: false,
     ghostMode: false,
+    open: true,
     // files: ['./server'],
     // logLevel: 'silent',
   })
