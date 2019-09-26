@@ -12,9 +12,7 @@ function getAvailablePort() {
     server.on('error', reject);
     server.listen(0, () => {
       const { port } = server.address();
-      server.close(() => {
-        resolve(port);
-      });
+      server.close(() => resolve(port));
     });
   });
 }
