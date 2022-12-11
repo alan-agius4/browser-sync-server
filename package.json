@@ -10,7 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "rxjs": "^6.5.3",
     "rxjs-shell": "^1.0.2",
     "tree-kill": "^1.2.1"
